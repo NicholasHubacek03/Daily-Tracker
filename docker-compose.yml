@@ -1,0 +1,30 @@
+services:
+  tracker_db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_PASSWORD=trackerPassword
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=tracker_db
+    networks:
+      - auth
+    ports:
+      - 5432:5432
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    working_dir: /app
+    networks:
+      - auth
+    ports:
+      - 3000:3000
+    depends_on:
+      - tracker_db
+    command: [sh, -c, 'npm run start:dev']
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules
+
+networks:
+  auth:
