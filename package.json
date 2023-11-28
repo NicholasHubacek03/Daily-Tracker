@@ -1,8 +1,8 @@
 {
-  "name": "daily-tracker",
+  "name": "SwiftList",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "An Appplication that uses nest.js and react as a to-do list/daily tracker",
+  "author": "Nicholas Hubacek",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
