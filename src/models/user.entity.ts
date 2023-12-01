@@ -3,6 +3,9 @@
 
     @Table
     export class User extends Model {
+    @Column 
+    user_id: number     
+
     @Column
     username: string;
 
@@ -14,6 +17,6 @@
     
     @Column
     password: string;
-
+        
     }
     

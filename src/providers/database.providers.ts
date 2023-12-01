@@ -5,13 +5,14 @@ export const databaseProviders = [
   {
     provide: 'SEQUELIZE',
     useFactory: async () => {
+      console.log(process.env)
       const sequelize = new Sequelize({
         dialect: 'postgres',
-        host: process.env.POSTGRES_HOST || 'db',
+        host: process.env.POSTGRES_HOST || 'localhost',
         port: Number(process.env.DATABASE_PORT) || 5432,
         username: process.env.POSTGRES_USERNAME || 'postgres',
-        password: process.env.POSTGRES_PASSWORD || '',
-        database: process.env.POSTGRES_NAME || 'postgres',
+        password: process.env.POSTGRES_PASSWORD || 'trackerPassword',
+        database: process.env.POSTGRES_NAME || 'tracker_db',
         timezone: 'utc',
       });
       sequelize.addModels([
