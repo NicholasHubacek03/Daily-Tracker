@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Task } from 'src/models/task.entity';
 import { User } from 'src/models/user.entity';
 
 export const databaseProviders = [
@@ -16,7 +17,8 @@ export const databaseProviders = [
         timezone: 'utc',
       });
       sequelize.addModels([
-        User
+        User,
+        Task
       ]);
 
       await sequelize.sync();
