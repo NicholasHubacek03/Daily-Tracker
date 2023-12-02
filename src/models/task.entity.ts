@@ -1,7 +1,8 @@
 
-import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
 import { User } from './user.entity';
 import { DataTypes } from 'sequelize';
+import { Comment } from './comment.entity';
 
 @Table
 export class Task extends Model {
@@ -53,4 +54,6 @@ createdAt?: any;
 
 updatedAt?: any;
 
+@HasMany(() => Comment)
+comments: Comment[];
 }

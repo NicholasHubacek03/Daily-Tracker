@@ -2,6 +2,7 @@
     import { DataTypes } from 'sequelize';
 import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { Task } from './task.entity';
+import { Comment } from './comment.entity';
 
     @Table
     export class User extends Model {
@@ -31,5 +32,7 @@ import { Task } from './task.entity';
     @HasMany(() => Task)
     tasks: Task[];
         
+    @HasMany(() => Comment)
+    comments: Comment[];
     }
     
