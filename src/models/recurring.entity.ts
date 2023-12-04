@@ -6,17 +6,17 @@ export class Recurring extends Model {
 recurring_id: number    
     
 @Column
-daily: string;
+daily: boolean;
 
 @Column
-weekly: string;
+weekly: boolean;
 
 @Column
-bi_weekly: string;
+bi_weekly: boolean;
 
 @Column
-monthly: string;
+monthly: boolean;
 
 @Column
-bi_monthly: string;
+bi_monthly: boolean;
 }

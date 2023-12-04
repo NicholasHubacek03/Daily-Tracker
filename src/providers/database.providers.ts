@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Comment } from 'src/models/comment.entity';
 import { Priority } from 'src/models/priority.entity';
+import { Reminder } from 'src/models/reminder.entity';
 import { Subtask } from 'src/models/subtask.entity';
 import { Task } from 'src/models/task.entity';
 import { User } from 'src/models/user.entity';
@@ -24,7 +25,8 @@ export const databaseProviders = [
         Task,
         Comment,
         Priority,
-        Subtask
+        Subtask,
+        Reminder
       ]);
 
       await sequelize.sync();

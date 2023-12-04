@@ -1,5 +1,6 @@
 
-import { Table, Column, Model } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Task } from './task.entity';
 
 @Table
 export class Reminder extends Model {
@@ -7,15 +8,16 @@ export class Reminder extends Model {
 reminder_id: number
 
 @Column
-username: string;
-
-@Column
 due_date: string;
-
+// DATE!!!
 @Column
-lastName: string;
+remind_date: string;
+// DATE!!!
 
+@ForeignKey(() => Task)
 @Column
-password: string;
+taskId: number;
 
+@BelongsTo(() => Task)
+task: Task;
 }
