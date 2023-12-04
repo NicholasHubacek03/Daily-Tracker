@@ -3,6 +3,7 @@ import { Table, Column, Model, ForeignKey, BelongsTo, HasMany } from 'sequelize-
 import { User } from './user.entity';
 import { DataTypes } from 'sequelize';
 import { Comment } from './comment.entity';
+import { Priority } from './priority.entity';
 
 @Table
 export class Task extends Model {
@@ -32,9 +33,12 @@ description: string;
   })
 due_date: string;
 
+@ForeignKey(() => Priority)
 @Column
-password: string;
-// FK for priority, need to comeback too it
+taskId: number;
+
+@BelongsTo(() => Priority)
+priority: Priority;
 
 @Column ({
     type: DataTypes.BOOLEAN(),

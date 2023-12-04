@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Comment } from 'src/models/comment.entity';
+import { Priority } from 'src/models/priority.entity';
 import { Task } from 'src/models/task.entity';
 import { User } from 'src/models/user.entity';
 
@@ -20,7 +21,8 @@ export const databaseProviders = [
       sequelize.addModels([
         User,
         Task,
-        Comment
+        Comment,
+        Priority
       ]);
 
       await sequelize.sync();
