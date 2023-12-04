@@ -6,6 +6,7 @@ import { Comment } from './comment.entity';
 import { Priority } from './priority.entity';
 import { Subtask } from './subtask.entity';
 import { Reminder } from './reminder.entity';
+import { Recurring } from './recurring.entity';
 
 @Table
 export class Task extends Model {
@@ -69,4 +70,6 @@ substasks: Subtask[];
 @HasMany(() => Reminder)
 reminders: Reminder[];
 
+@HasMany(() => Recurring)
+recurrings: Recurring[];
 }
