@@ -1,5 +1,4 @@
-
-import { Table, Column, Model, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo, HasMany, BelongsToMany, PrimaryKey } from 'sequelize-typescript';
 import { User } from './user.entity';
 import { DataTypes } from 'sequelize';
 import { Comment } from './comment.entity';
@@ -7,69 +6,69 @@ import { Priority } from './priority.entity';
 import { Subtask } from './subtask.entity';
 import { Reminder } from './reminder.entity';
 import { Recurring } from './recurring.entity';
+import { Tag } from './tag.entity';
+import { TaskTag } from './tasktag.entity';
 
 @Table
 export class Task extends Model {
+  @PrimaryKey
+  @Column
+  task_id: number;
 
-@Column 
-task_id: number
-
- @ForeignKey(() => User)
+  @ForeignKey(() => User)
   @Column
   userID: number;
-  
+
   @BelongsTo(() => User)
   user: User;
 
-@Column ({
+  @Column({
     type: DataTypes.STRING(55),
   })
-title: string;
+  title: string;
 
-@Column ({
+  @Column({
     type: DataTypes.STRING(55),
   })
-description: string;
+  description: string;
 
-@Column ({
+  @Column({
     type: DataTypes.DATE(),
   })
-due_date: string;
+  due_date: string;
 
-@ForeignKey(() => Priority)
-@Column
-taskId: number;
+  @ForeignKey(() => Priority)
+  @Column
+  priorityId: number;
 
-@BelongsTo(() => Priority)
-priority: Priority;
+  @BelongsTo(() => Priority)
+  priority: Priority;
 
-@Column ({
+  @Column({
     type: DataTypes.BOOLEAN(),
   })
-completed: string;
+  completed: string;
 
-@Column ({
+  @Column({
     type: DataTypes.INTEGER(),
   })
-progess: string;
+  progess: string;
 
-@Column
-recurring: string;
-// recurring.id, need to come back to it
+  @Column
+  recurring: string;
 
-createdAt?: any;
+  @HasMany(() => Comment)
+  comments: Comment[];
 
-updatedAt?: any;
+  @HasMany(() => Subtask)
+  substasks: Subtask[];
 
-@HasMany(() => Comment)
-comments: Comment[];
+  @HasMany(() => Reminder)
+  reminders: Reminder[];
 
-@HasMany(() => Subtask)
-substasks: Subtask[];
+  @HasMany(() => Recurring)
+  recurrings: Recurring[];
 
-@HasMany(() => Reminder)
-reminders: Reminder[];
-
-@HasMany(() => Recurring)
-recurrings: Recurring[];
+  @BelongsToMany(() => Tag, () => TaskTag, 'taskId', 'tagId')
+  tags: Tag[];
 }

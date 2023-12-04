@@ -4,7 +4,9 @@ import { Priority } from 'src/models/priority.entity';
 import { Recurring } from 'src/models/recurring.entity';
 import { Reminder } from 'src/models/reminder.entity';
 import { Subtask } from 'src/models/subtask.entity';
+import { Tag } from 'src/models/tag.entity';
 import { Task } from 'src/models/task.entity';
+import { TaskTag } from 'src/models/tasktag.entity';
 import { User } from 'src/models/user.entity';
 
 export const databaseProviders = [
@@ -28,7 +30,9 @@ export const databaseProviders = [
         Priority,
         Subtask,
         Reminder,
-        Recurring
+        Recurring,
+        Tag,
+        TaskTag
       ]);
 
       await sequelize.sync();

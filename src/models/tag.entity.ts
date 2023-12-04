@@ -3,8 +3,12 @@ import { Table, Column, Model } from 'sequelize-typescript';
 
 @Table
 export class Tag extends Model {
-    
-@Column
-Tag: string;
+  @Column({
+    primaryKey: true,
+    autoIncrement: true,
+  })
+  tagId: number;
 
+  @Column
+  Tag: string;
 }
