@@ -4,6 +4,7 @@ import { User } from './user.entity';
 import { DataTypes } from 'sequelize';
 import { Comment } from './comment.entity';
 import { Priority } from './priority.entity';
+import { Subtask } from './subtask.entity';
 
 @Table
 export class Task extends Model {
@@ -60,4 +61,7 @@ updatedAt?: any;
 
 @HasMany(() => Comment)
 comments: Comment[];
+
+@HasMany(() => Subtask)
+substasks: Subtask[];
 }
