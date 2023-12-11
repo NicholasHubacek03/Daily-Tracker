@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
-import { Timestamp } from 'typeorm';
+import { CreateDateColumn, Timestamp, UpdateDateColumn } from 'typeorm';
 import { Task } from './task.entity';
 
 @Table
@@ -24,10 +24,9 @@ task: Task;
 @Column
 compeleted: boolean
 
-// @Column
-// createdAt?: any;
+@CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
-// @Column
-// updatedAt?: any;
-// need to come back and fix
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
+  updatedAt: Date;
 }

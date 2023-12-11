@@ -7,12 +7,17 @@ export class Reminder extends Model {
 @Column 
 reminder_id: number
 
-@Column
-due_date: string;
-// DATE!!!
-@Column
-remind_date: string;
-// DATE!!!
+@Column({
+    type: 'DATE',
+    allowNull: false,
+  })
+  due_date: Date;
+
+  @Column({
+    type: 'DATE',
+    allowNull: false,
+  })
+  remind_date: Date;
 
 @ForeignKey(() => Task)
 @Column

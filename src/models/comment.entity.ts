@@ -2,6 +2,7 @@ import { DataTypes } from 'sequelize';
 import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { User } from './user.entity';
 import { Task } from './task.entity';
+import { CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Table
 export class Comment extends Model {
@@ -27,9 +28,9 @@ user: User;
   })
 Content: string;
 
-@Column
-createdAt: string;
+@CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
-@Column
-updatedAt?: string;
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
+  updatedAt: Date;
 }
