@@ -4,13 +4,23 @@
 
     @Injectable()
     export class UsersService {
+    create: this;
+
     constructor(
         @Inject('USER_REPOSITORY')
         private usersRepository: typeof User,
     ) {}
     
+    async findOne(id:number): Promise<User> {
+        return this.usersRepository.findOne<User>({
+        where: {id}
+        });
+    }
+    
     async findAll(): Promise<User[]> {
         return this.usersRepository.findAll<User>();
     }
+
+    
     }
     
