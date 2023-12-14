@@ -20,7 +20,9 @@
     async findAll(): Promise<User[]> {
         return this.usersRepository.findAll<User>();
     }
-
+    async create(userData: User): Promise<User> {
+        return this.user.create(userData);
+      }
     
     }
     
