@@ -4,7 +4,10 @@ import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { Task } from './task.entity';
 import { Comment } from './comment.entity';
 
-    @Table
+    @Table ({
+      timestamps: true,
+      paranoid: true,
+    })
     export class User extends Model {
     @Column 
     user_id: number     

@@ -1,7 +1,10 @@
 import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { Task } from './task.entity';
 
-@Table
+@Table ({
+    timestamps: true,
+    paranoid: true,
+  })
 export class Recurring extends Model {
 @Column 
 recurring_id: number    
