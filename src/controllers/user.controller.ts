@@ -19,9 +19,9 @@ export class UsersController {
   @Post()
   async create(@Body() userData: IUserDTO): Promise<User> {
      return User.create({ firstName: userData.firstName, lastName: userData.lastName });
-  }
-  @Put('id')
-  update(@Param('id')@Body() userData: IUserDTO): Promise<User>{
-    return User.update
-  }
-  }
+  // }
+  // @Put('id')
+  // update(@Param('id')@Body() userData: IUserDTO): Promise<User>{
+  //   return User.update
+  // }
+  }}

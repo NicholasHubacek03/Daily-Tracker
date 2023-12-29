@@ -20,7 +20,7 @@ export const databaseProviders = [
         port: Number(process.env.DATABASE_PORT) || 5432,
         username: process.env.POSTGRES_USERNAME || 'postgres',
         password: process.env.POSTGRES_PASSWORD || 'trackerPassword',
-        database: process.env.POSTGRES_NAME || 'tracker_db',
+        database: process.env.POSTGRES_NAME || 'postgres',
         timezone: 'utc',
       });
       sequelize.addModels([
