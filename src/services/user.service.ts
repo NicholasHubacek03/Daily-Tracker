@@ -5,6 +5,12 @@ import { IUserDTO } from 'src/interfaces/general';
 
     @Injectable()
     export class UsersService {
+    remove(id: number) {
+      throw new Error('Method not implemented.');
+    }
+    updateUser(id: number, userData: IUserDTO) {
+      throw new Error('Method not implemented.');
+    }
     create: this;
 
     constructor(

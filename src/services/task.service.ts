@@ -4,6 +4,9 @@
 
     @Injectable()
     export class TasksService {
+    getTaskById(id: number): Task {
+      throw new Error('Method not implemented.');
+    }
     constructor(
         @Inject('TASK_REPOSITORY')
         private tasksRepository: typeof Task,
