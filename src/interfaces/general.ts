@@ -13,3 +13,7 @@ export interface IPriorityDTO{
     name: string
     color: string
 }
+export interface IReminderDTO{
+    due_date: Date
+    remind_date: Date
+}
