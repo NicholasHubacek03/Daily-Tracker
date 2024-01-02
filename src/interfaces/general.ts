@@ -21,3 +21,10 @@ export interface ISubtaskDTO{
     title: string
     completed: boolean
 }
+export interface IRecurringDTO{
+    daily:boolean
+    weekly:boolean
+    bi_weekly:boolean
+    monthly:boolean
+    bi_monthly:boolean
+}
