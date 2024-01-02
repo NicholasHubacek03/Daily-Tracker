@@ -4,6 +4,9 @@
 
     @Injectable()
     export class PrioritysService {
+    getPriorityById(id: number): Priority {
+      throw new Error('Method not implemented.');
+    }
     constructor(
         @Inject('PRIORITY_REPOSITORY')
         private prioritysRepository: typeof Priority,

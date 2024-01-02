@@ -9,3 +9,6 @@ export interface ITaskDTO{
 export interface ICommentDTO{
     content: string
 }
+export interface IPriorityDTO{
+    
+}
