@@ -10,5 +10,6 @@ export interface ICommentDTO{
     content: string
 }
 export interface IPriorityDTO{
-    
+    name: string
+    color: string
 }
