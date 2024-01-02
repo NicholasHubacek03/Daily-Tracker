@@ -1,7 +1,8 @@
 
-    import { Controller, Get } from '@nestjs/common';
+    import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
     import { Comment } from 'src/models/comment.entity';
     import { CommentsService } from '../services/comment.service';
+    import { ICommentDTO } from 'src/interfaces/general';
     
     @Controller('comment')
     export class CommentsController {
@@ -12,26 +13,19 @@
         return this.commentsService.findAll();
       }
       @Get('id')
-      
+      getCommentById(@Param('id') id: number): Comment{
+        return this.commentsService.getCommentById(id);
+      }
+      @Post()
+      async createComment(@Body() commentData: ICommentDTO): Promise <Comment>{
+        return Comment.create({content: commentData.content})
+      }
+      @Put(':id')
+      update(@Param('id') id:number, @Body() commentData: ICommentDTO){
+        return this.commentsService.updateComment(id, commentData)
+      }
+      @Delete('id')
+      remove(@Param('id') id: number){
+        return this.commentsService.remove(id);
+      }
     }
-    //       @Get()
-    //   async getAllTasks(): Promise<Task[]> {
-    //     return this.tasksService.findAll();
-    //   }
-    //   @Get('id')
-    //   getTaskById(@Param('id') id: number): Task {
-    //     return this.tasksService.getTaskById(id);
-    //   }
-    //   @Post()
-    //   async createTask(@Body() taskData: ITaskDTO): Promise <Task>{
-    //     return Task.create({ firstName: taskData.title, lastName: taskData.description});
-    //   }
-    //   @Put(':id')
-    //   update(@Param('id') id: number, @Body() taskData: ITaskDTO){
-    //   return this.tasksService.updateTask(id, taskData);
-    //     }
-    //   @Delete('id')
-    //   remove(@Param('id') id: number){
-    //     return this.tasksService.remove(id);
-    //     }
-    // }

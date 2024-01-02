@@ -6,3 +6,6 @@ export interface ITaskDTO{
     title: string
     description: string
 }
+export interface ICommentDTO{
+    content: string
+}
