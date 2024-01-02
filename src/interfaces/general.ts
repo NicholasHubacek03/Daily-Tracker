@@ -17,3 +17,7 @@ export interface IReminderDTO{
     due_date: Date
     remind_date: Date
 }
+export interface ISubtaskDTO{
+    title: string
+    completed: boolean
+}
