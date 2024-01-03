@@ -28,3 +28,6 @@ export interface IRecurringDTO{
     monthly:boolean
     bi_monthly:boolean
 }
+export interface ITagDTO{
+    tag:string
+}
