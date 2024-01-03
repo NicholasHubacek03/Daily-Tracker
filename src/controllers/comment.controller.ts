@@ -14,7 +14,7 @@
       }
       @Get('id')
       getCommentById(@Param('id') id: number): Comment{
-        return this.commentsService.getCommentById(id);
+        return this.commentsService.findOne(id);
       }
       @Post()
       async createComment(@Body() commentData: ICommentDTO): Promise <Comment>{
