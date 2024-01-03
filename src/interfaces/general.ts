@@ -31,3 +31,6 @@ export interface IRecurringDTO{
 export interface ITagDTO{
     tag:string
 }
+export interface ITasktagDTO{
+    
+}
