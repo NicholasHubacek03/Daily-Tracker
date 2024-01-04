@@ -13,8 +13,8 @@ import { ISubtaskDTO } from 'src/interfaces/general';
         return this.subtasksService.findAll();
       }
       @Get('id')
-      getSubtaskById(@Param('id') id: number): Promise<Subtask> {
-        return this.subtasksService.getSubtaskById(id);
+      findOne(@Param('id') id: number): Promise<Subtask> {
+        return this.subtasksService.findOne(id);
       }
       @Post()
       async createSubtasks(@Body() subtasktData: ISubtaskDTO): Promise <Subtask>{
@@ -22,7 +22,7 @@ import { ISubtaskDTO } from 'src/interfaces/general';
       }
       @Put(':id')
       update(@Param('id') id:number, @Body() subtasktData: ISubtaskDTO){
-        return this.subtasksService.updateSubtasks(id, subtasktData)
+        return this.subtasksService.update(id, subtasktData)
       }
       @Delete('id')
       remove(@Param('id') id: number){

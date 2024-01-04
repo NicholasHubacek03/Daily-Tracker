@@ -13,8 +13,8 @@ import { ITaskDTO } from 'src/interfaces/general';
         return this.tasksService.findAll();
       }
       @Get('id')
-      getTaskById(@Param('id') id: number): Task {
-        return this.tasksService.getTaskById(id);
+      findOne(@Param('id') id: number): Promise <Task> {
+        return this.tasksService.findOne(id);
       }
       @Post()
       async createTask(@Body() taskData: ITaskDTO): Promise <Task>{
@@ -22,7 +22,7 @@ import { ITaskDTO } from 'src/interfaces/general';
       }
       @Put(':id')
       update(@Param('id') id: number, @Body() taskData: ITaskDTO){
-      return this.tasksService.updateTask(id, taskData);
+      return this.tasksService.update(id, taskData);
         }
       @Delete('id')
       remove(@Param('id') id: number){

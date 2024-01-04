@@ -13,8 +13,8 @@ import { ITagDTO } from 'src/interfaces/general';
         return this.tagsService.findAll();
       }
       @Get('id')
-      getTagById(@Param('id') id: number): Comment{
-        return this.tagsService.getTagById(id);
+      findOne(@Param('id') id: number): Promise <Tag>{
+        return this.tagsService.findOne(id);
       }
       @Post()
       async createTag(@Body() tagData: ITagDTO): Promise <Tag>{
@@ -22,7 +22,7 @@ import { ITagDTO } from 'src/interfaces/general';
       }
       @Put(':id')
       update(@Param('id') id:number, @Body() tagtData: ITagDTO){
-        return this.tagsService.updateTag(id, tagtData)
+        return this.tagsService.update(id, tagtData)
       }
       @Delete('id')
       remove(@Param('id') id: number){

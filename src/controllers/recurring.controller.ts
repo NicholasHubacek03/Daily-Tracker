@@ -13,8 +13,8 @@ import { IRecurringDTO } from 'src/interfaces/general';
         return this.recurringsService.findAll();
       }
       @Get('id')
-      getRecurringById(@Param('id') id: number): Recurring{
-        return this.recurringsService.getRecurringById(id);
+      findOne(@Param('id') id: number): Promise <Recurring>{
+        return this.recurringsService.findOne(id);
       }
       @Post()
       async createRecurring(@Body() recurringData: IRecurringDTO): Promise <Recurring>{
@@ -22,7 +22,7 @@ import { IRecurringDTO } from 'src/interfaces/general';
       }
       @Put(':id')
       update(@Param('id') id:number, @Body() recurringData: IRecurringDTO){
-        return this.recurringsService.updateRecurring(id, recurringData)
+        return this.recurringsService.update(id, recurringData)
       }
       @Delete('id')
       remove(@Param('id') id: number){

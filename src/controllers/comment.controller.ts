@@ -13,16 +13,16 @@
         return this.commentsService.findAll();
       }
       @Get('id')
-      getCommentById(@Param('id') id: number): Comment{
+      getCommentById(@Param('id') id: number): Promise <Comment>{
         return this.commentsService.findOne(id);
       }
       @Post()
       async createComment(@Body() commentData: ICommentDTO): Promise <Comment>{
         return Comment.create({content: commentData.content})
       }
-      @Put(':id')
+      @Put('id')
       update(@Param('id') id:number, @Body() commentData: ICommentDTO){
-        return this.commentsService.updateComment(id, commentData)
+        return this.commentsService.update(id, commentData)
       }
       @Delete('id')
       remove(@Param('id') id: number){

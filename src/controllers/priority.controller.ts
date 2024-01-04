@@ -13,8 +13,8 @@ import { IPriorityDTO } from 'src/interfaces/general';
         return this.prioritysService.findAll();
       }
       @Get('id')
-      getPriorityById(@Param('id') id: number): Priority{
-        return this.prioritysService.getPriorityById(id);
+      findOne(@Param('id') id: number): Promise <Priority>{
+        return this.prioritysService.findOne(id);
       }
       @Post()
       async createPriority(@Body() priorityData: IPriorityDTO): Promise <Priority>{
@@ -22,7 +22,7 @@ import { IPriorityDTO } from 'src/interfaces/general';
       }
        @Put(':id')
       update(@Param('id') id:number, @Body() priorityData: IPriorityDTO){
-        return this.prioritysService.updatePriority(id, priorityData)
+        return this.prioritysService.update(id, priorityData)
       }
          @Delete('id')
           remove(@Param('id') id: number){

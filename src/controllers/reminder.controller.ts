@@ -13,8 +13,8 @@ import { IReminderDTO } from 'src/interfaces/general';
         return this.remindersService.findAll();
       }
       @Get('id')
-      getReminderById(@Param('id') id: number): Reminder{
-        return this.remindersService.getReminderById(id);
+      findOne(@Param('id') id: number): Promise <Reminder>{
+        return this.remindersService.findOne(id);
       }
       @Post()
       async createReminder(@Body() reminderData: IReminderDTO): Promise <Reminder>{
@@ -22,7 +22,7 @@ import { IReminderDTO } from 'src/interfaces/general';
       }
       @Put(':id')
       update(@Param('id') id:number, @Body() reminderData: IReminderDTO){
-        return this.remindersService.updateReminder(id, reminderData)
+        return this.remindersService.update(id, reminderData)
       }
       @Delete('id')
       remove(@Param('id') id: number){

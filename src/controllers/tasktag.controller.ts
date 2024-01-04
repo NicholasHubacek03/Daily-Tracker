@@ -13,8 +13,8 @@ export class TasktagsController {
     return this.tasktagsService.findAll();
   }
   @Get('id')
-  getTasktagById(@Param('id') id: number): TaskTag{
-    return this.tasktagsService.getTasktagById(id);
+  find(@Param('id') id: number): Promise<TaskTag>{
+    return this.tasktagsService.findOne(id);
   }
   @Post()
   async createComment(@Body() tasktagData: ITasktagDTO): Promise <TaskTag>{
@@ -22,7 +22,7 @@ export class TasktagsController {
   }
   @Put('id')
   update(@Param('id') id:number, @Body() tasktagData: ITasktagDTO){
-    return this.tasktagsService.updateTasktag(id, tasktagData)
+    return this.tasktagsService.update(id, tasktagData)
   }
   @Delete('id')
   remove(@Param('id') id: number){
