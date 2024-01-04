@@ -26,7 +26,7 @@ user: User;
 @Column ({
     type: DataTypes.STRING(100),
   })
-Content: string;
+content: string;
 
 @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;

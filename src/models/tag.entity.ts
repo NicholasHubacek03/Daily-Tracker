@@ -10,5 +10,5 @@ export class Tag extends Model {
   tagId: number;
 
   @Column
-  Tag: string;
+  tag: string;
 }
