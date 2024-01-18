@@ -18,6 +18,11 @@ import { Comment } from './comment.entity';
     username: string;
 
     @Column({
+      type: DataTypes.STRING(55),
+    })
+  Email: string;
+
+    @Column({
         type: DataTypes.STRING(55),
       })
     firstName: string;

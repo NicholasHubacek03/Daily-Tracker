@@ -30,6 +30,6 @@ export abstract class BaseService<T extends Model<T>> {
   }
 
   async create(data: Partial<T>): Promise<T> {
-    return this.model.create<T>(data as unknown as CreateOptions<T>);
+    return this.create(data );
   }
 }
